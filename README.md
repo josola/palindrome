@@ -1,2 +1,2 @@
-# palindrome_checker
+# Palindrome Checker
 Checks for palindromes. Ⓜ️
