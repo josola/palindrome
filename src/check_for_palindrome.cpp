@@ -6,22 +6,20 @@
 #include <string>
 #include <algorithm>
 
-int main()
+int main(int argc, char **argv)
 {
-    std::string input = " ";
-
-    std::cout << "Input your palindrome: \n";
-    std::getline (std::cin, input);
-
-    std::string rvrs_inpt = input;
-    std::reverse (begin(rvrs_inpt), end(rvrs_inpt));
-
-    if (input.compare(rvrs_inpt) == 0) {
-        std::cout << input << " is " << rvrs_inpt << " backwards.\n";
+    if (argc != 2) {
+        std::cout << "Usage: " << argv[0] << " <string> \n";
+        return 1;
+    }
+    std::string input = argv[1];
+    std::string flipped_word = argv[1];
+    std::reverse (begin(flipped_word), end(flipped_word));
+    if (input.compare(flipped_word) == 0) {
+        std::cout << input << " is " << flipped_word << " backwards.\n";
     }
     else {
         std::cout << input << " is not a palindrome.\n";
     }
-
     return 0;
 }
