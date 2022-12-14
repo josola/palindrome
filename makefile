@@ -1,4 +1,4 @@
-TARGET_EXEC := palindrome_checker
+TARGET_EXEC := check-for-palindrome
 
 BUILD_DIR := ./build
 SRC_DIRS := ./src
