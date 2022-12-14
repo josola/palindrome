@@ -1,7 +1,3 @@
-//palindrome_checkr.cpp
-//Program that checks for input string palindromes
-//Written by Jordan Sola 2020
-
 #include <iostream>
 #include <string>
 #include <algorithm>
