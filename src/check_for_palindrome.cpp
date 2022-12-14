@@ -11,10 +11,10 @@ int main(int argc, char **argv)
     std::string flipped_word = word;
     std::reverse (begin(flipped_word), end(flipped_word));
     if (word.compare(flipped_word) == 0) {
-        std::cout << word << " is " << flipped_word << " backwards.\n";
+        cli.say_word_is_palindrome(word);
     }
     else {
-        std::cout << word << " is not a palindrome.\n";
+        cli.say_word_is_not_palindrome(word);
     }
     return 0;
 }
