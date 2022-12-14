@@ -1,21 +1,20 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include "command_line_interface.hpp"
 
 int main(int argc, char **argv)
 {
-    if (argc != 2) {
-        std::cout << "Usage: " << argv[0] << " <string> \n";
-        return 1;
-    }
-    std::string input = argv[1];
-    std::string flipped_word = argv[1];
+    CommandLineInterface cli(argc, argv);
+    CLIParser parser(cli);
+    std::string word = parser.parse();
+    std::string flipped_word = word;
     std::reverse (begin(flipped_word), end(flipped_word));
-    if (input.compare(flipped_word) == 0) {
-        std::cout << input << " is " << flipped_word << " backwards.\n";
+    if (word.compare(flipped_word) == 0) {
+        std::cout << word << " is " << flipped_word << " backwards.\n";
     }
     else {
-        std::cout << input << " is not a palindrome.\n";
+        std::cout << word << " is not a palindrome.\n";
     }
     return 0;
 }
