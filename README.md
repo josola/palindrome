@@ -1,5 +1,6 @@
 # Check for Palindrome
-Checks if a word is a palindrome.
+Checks if a word is a palindrome. A word, phrase, verse, or sentence that reads
+the same backward or forward. For example: A man, a plan, a canal, Panama!
 
 ## Installation
 This tool runs on Make. To install it, run the following commands:
