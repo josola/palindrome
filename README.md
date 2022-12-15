@@ -24,12 +24,14 @@ $ ./build/palindrome <command> <input>
 ### Commands
 * help - Shows the help menu.
 * text - Checks if a text is a palindrome.
+* sentence - Checks if a sentence is a palindrome.
 * number - Checks if a number is a palindrome.
 
 ## Examples
 ```
 $ ./build/palindrome help
 $ ./build/palindrome text racecar
+$ ./build/palindrome sentence A man, a plan, a canal, Panama!
 $ ./build/palindrome number 12321
 ```
 
