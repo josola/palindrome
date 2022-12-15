@@ -22,11 +22,13 @@ $ ./build/palindrome <command> <input>
 ```
 
 ### Commands
+* help - Shows the help menu.
 * text - Checks if a text is a palindrome.
 * number - Checks if a number is a palindrome.
 
 ## Examples
 ```
+$ ./build/palindrome help
 $ ./build/palindrome text racecar
 $ ./build/palindrome number 12321
 ```
