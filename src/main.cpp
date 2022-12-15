@@ -6,6 +6,12 @@
 
 int main(int argc, char *argv[]) {
     Program *program = program_new("palindrome", "Check if a text or number is a palindrome");
+    Command help_command = {
+        .name = "help",
+        .description = "Show the help message",
+        .arguments = {}
+    };
+    program_add_command(program, help_command);
     Command text_command = {
         .name = "text",
         .description = "Check if a text is a palindrome",
