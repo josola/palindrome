@@ -6,7 +6,7 @@ the same backward or forward. For example: A man, a plan, a canal, Panama!
 This tool runs on Make. To install it, run the following commands:
 ```
 $ git clone <this repository>
-$ cd check-for-palindrome
+$ cd palindrome
 $ make
 ```
 
