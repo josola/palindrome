@@ -3,6 +3,7 @@
 #include "parse_args.hpp"
 #include "text_palindrome.hpp"
 #include "numerical_palindrome.hpp"
+#include "sentence_palindrome.hpp"
 
 int main(int argc, char *argv[]) {
     Program *program = program_new("palindrome", "Check if a text or number is a palindrome");
@@ -25,6 +26,19 @@ int main(int argc, char *argv[]) {
         }
     };
     program_add_command(program, text_command);
+    Command sentence_commane = {
+        .name = "sentence",
+        .description = "Check if a sentence is a palindrome",
+        .arguments = {
+            {
+                .name = "sentence",
+                .description = "The sentence to check",
+                .value = "",
+                .is_required = true
+            }
+        }
+    };
+    program_add_command(program, sentence_commane);
     Command number_command = {
         .name = "number",
         .description = "Check if a number is a palindrome",
@@ -49,6 +63,21 @@ int main(int argc, char *argv[]) {
             std::cout << "The text '" << text << "' is not a palindrome" << std::endl;
         }
         text_free(text_palindrome);
+    } else if (command == "sentence") {
+        std::string sentence = "";
+        for (int i = 2; i < argc; i++) {
+            sentence += argv[i];
+            if (i != argc - 1) {
+                sentence += " ";
+            }
+        }
+        SentencePalindrome *sentence_palindrome = sentence_palindrome_new(sentence);
+        if (sentence_is_palindrome(sentence_palindrome)) {
+            std::cout << "The sentence '" << sentence << "' is a palindrome" << std::endl;
+        } else {
+            std::cout << "The sentence '" << sentence << "' is not a palindrome" << std::endl;
+        }
+        sentence_palindrome_free(sentence_palindrome);
     } else if (command == "number") {
         int number = std::stoi(argv[2]);
         NumericalPalindrome *numerical_palindrome = numerical_palindrome_new(number);
