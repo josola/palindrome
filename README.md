@@ -5,15 +5,25 @@ the same backward or forward. For example: A man, a plan, a canal, Panama!
 ## Installation
 This tool runs on Make. To install it, run the following commands:
 ```
-git clone (this repository)
-cd check-for-palindrome
-make
+$ git clone <this repository>
+$ cd check-for-palindrome
+$ make
 ```
 
 ## Usage
 To use this tool, run the following command:
 ```
-./build/check-for-palindrome (word)
+$ ./build/palindrome <command> <input>
+```
+
+### Commands
+* text - Checks if a text is a palindrome.
+* number - Checks if a number is a palindrome.
+
+## Examples
+```
+$ ./build/palindrome text racecar
+$ ./build/palindrome number 12321
 ```
 
 ## Contributing
