@@ -4,6 +4,7 @@
 #include "text_palindrome.hpp"
 #include "numerical_palindrome.hpp"
 #include "sentence_palindrome.hpp"
+#include "poem_palindrome.hpp"
 
 int main(int argc, char *argv[]) {
     Program *program = program_new("palindrome", "Check if a text or number is a palindrome");
@@ -26,6 +27,19 @@ int main(int argc, char *argv[]) {
         }
     };
     program_add_command(program, text_command);
+    Command poem_command = {
+        .name = "poem",
+        .description = "Check if a poem is a palindrome",
+        .arguments = {
+            {
+                .name = "file_path",
+                .description = "The path to the poem file",
+                .value = "",
+                .is_required = true
+            }
+        }
+    };
+    program_add_command(program, poem_command);
     Command sentence_commane = {
         .name = "sentence",
         .description = "Check if a sentence is a palindrome",
@@ -78,6 +92,15 @@ int main(int argc, char *argv[]) {
             std::cout << "The sentence '" << sentence << "' is not a palindrome" << std::endl;
         }
         sentence_palindrome_free(sentence_palindrome);
+    } else if (command == "poem") {
+        std::string file_path = argv[2];
+        Poem *poem = poem_new(file_path);
+        if (poem_is_palindrome(poem)) {
+            std::cout << "The poem '" << file_path << "' is a palindrome" << std::endl;
+        } else {
+            std::cout << "The poem '" << file_path << "' is not a palindrome" << std::endl;
+        }
+        poem_free(poem);
     } else if (command == "number") {
         int number = std::stoi(argv[2]);
         NumericalPalindrome *numerical_palindrome = numerical_palindrome_new(number);

@@ -10,6 +10,7 @@ Sentence *sentence_new(std::string sentence) {
     while (iss >> word) {
         new_sentence->words.push_back(word);
     }
+    new_sentence->sentence = sentence;
     return new_sentence;
 }
 

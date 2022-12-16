@@ -6,6 +6,7 @@
 
 typedef struct {
     std::vector<std::string> words;
+    std::string sentence;
 } Sentence;
 
 Sentence *sentence_new(std::string sentence);
