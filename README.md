@@ -25,6 +25,7 @@ $ ./build/palindrome <command> <input>
 * help - Shows the help menu.
 * text - Checks if a text is a palindrome.
 * sentence - Checks if a sentence is a palindrome.
+* poem - Checks if a poem is a palindrome.
 * number - Checks if a number is a palindrome.
 
 ## Examples
@@ -32,6 +33,7 @@ $ ./build/palindrome <command> <input>
 $ ./build/palindrome help
 $ ./build/palindrome text racecar
 $ ./build/palindrome sentence A man, a plan, a canal, Panama!
+$ ./build/palindrome poem path/to/palindrome_poem.txt
 $ ./build/palindrome number 12321
 ```
 
