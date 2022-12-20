@@ -9,13 +9,14 @@ NumericalPalindrome *numerical_palindrome_new(int number) {
     return p;
 }
 
-void numerical_palindrome_free(NumericalPalindrome *palindrome) {
+NumericalPalindrome *numerical_palindrome_free(NumericalPalindrome *palindrome) {
     free(palindrome);
+    return nullptr;
 }
 
 bool numerical_palindrome_is_palindrome(NumericalPalindrome *palindrome) {
     ReverseNumber *reverse_number = reverse_number_new(palindrome->number);
     int reversed = reverse_number_get(reverse_number);
-    reverse_number_free(reverse_number);
+    reverse_number = reverse_number_free(reverse_number);
     return palindrome->number == reversed;
 }

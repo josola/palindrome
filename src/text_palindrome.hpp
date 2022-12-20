@@ -8,7 +8,7 @@ typedef struct {
 } Text;
 
 Text *text_new(std::string text);
-void text_free(Text *text);
+Text *text_free(Text *text);
 bool text_is_palindrome(Text *text);
 
 #endif // TEXT_PALINDROME_HPP

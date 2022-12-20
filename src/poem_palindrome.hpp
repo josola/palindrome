@@ -8,10 +8,11 @@
 
 typedef struct {
     std::vector<Sentence *> sentences;
+    std::string filename;
 } Poem;
 
 Poem *poem_new(std::string file_path);
-void poem_free(Poem *poem);
+Poem *poem_free(Poem *poem);
 bool line_poem_is_palindrome(Poem *poem);
 bool word_poem_is_palindrome(Poem *poem);
 bool poem_is_palindrome(Poem *poem);

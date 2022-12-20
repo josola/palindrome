@@ -6,7 +6,7 @@
 #include "sentence_palindrome.hpp"
 #include "poem_palindrome.hpp"
 
-int main(int argc, char *argv[]) {
+int main(int argc, const char *argv[]) {
     Program *program = program_new("palindrome", "Check if a text or number is a palindrome");
     Command help_command = {
         .name = "help",
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
         } else {
             std::cout << "The text '" << text << "' is not a palindrome" << std::endl;
         }
-        text_free(text_palindrome);
+        text_palindrome = text_free(text_palindrome);
     } else if (command == "sentence") {
         std::string sentence = "";
         for (int i = 2; i < argc; i++) {
@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
         } else {
             std::cout << "The sentence '" << sentence << "' is not a palindrome" << std::endl;
         }
-        sentence_palindrome_free(sentence_palindrome);
+        sentence_palindrome = sentence_palindrome_free(sentence_palindrome);
     } else if (command == "poem") {
         std::string file_path = argv[2];
         Poem *poem = poem_new(file_path);
@@ -100,7 +100,7 @@ int main(int argc, char *argv[]) {
         } else {
             std::cout << "The poem '" << file_path << "' is not a palindrome" << std::endl;
         }
-        poem_free(poem);
+        poem = poem_free(poem);
     } else if (command == "number") {
         int number = std::stoi(argv[2]);
         NumericalPalindrome *numerical_palindrome = numerical_palindrome_new(number);
@@ -109,10 +109,10 @@ int main(int argc, char *argv[]) {
         } else {
             std::cout << "The number '" << number << "' is not a palindrome" << std::endl;
         }
-        numerical_palindrome_free(numerical_palindrome);
+        numerical_palindrome = numerical_palindrome_free(numerical_palindrome);
     } else {
         program_print_help(program);
     }
-    program_free(program);
+    program = program_free(program);
     return 0;
 }

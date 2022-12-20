@@ -24,9 +24,9 @@ typedef struct {
 } Program;
 
 Program *program_new(std::string name, std::string description);
-void program_free(Program *program);
+Program *program_free(Program *program);
 void program_add_command(Program *program, Command command);
 void program_print_help(Program *program);
-void program_parse_args(Program *program, int argc, char **argv);
+void program_parse_args(Program *program, int argc, const char **argv);
 
 #endif // PARSE_ARGS_HPP

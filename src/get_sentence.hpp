@@ -6,10 +6,10 @@
 
 typedef struct {
     std::vector<std::string> words;
-    std::string sentence;
+    std::string text;
 } Sentence;
 
 Sentence *sentence_new(std::string sentence);
-void sentence_free(Sentence *sentence);
+Sentence *sentence_free(Sentence *sentence);
 
 #endif // GET_SENTENCE_HPP

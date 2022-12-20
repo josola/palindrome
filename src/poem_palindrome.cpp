@@ -1,10 +1,8 @@
-#include "poem_palindrome.hpp"
-#include "get_sentence.hpp"
-
 #include <algorithm>
 #include <fstream>
 #include <iostream>
-#include <vector>
+
+#include "poem_palindrome.hpp"
 
 Poem *poem_new(std::string file_path) {
     Poem *poem = new Poem;
@@ -16,23 +14,26 @@ Poem *poem_new(std::string file_path) {
         sentences.push_back(sentence);
     }
     for (int i = 0; i < sentences.size(); i++) {
-        std::string sentence = sentences[i]->sentence;
+        std::string sentence = sentences[i]->text;
         sentence.erase(std::remove_if(sentence.begin(), sentence.end(), ispunct), sentence.end());
-        sentences[i]->sentence = sentence;
+        sentences[i]->text = sentence;
     }
+    poem->filename = file_path.substr(file_path.find_last_of("/") + 1);
     poem->sentences = sentences;
     return poem;
 }
 
-void poem_free(Poem *poem) {
-    delete poem;
+Poem *poem_free(Poem *poem) {
+    free(poem);
+    return nullptr;
 }
 
 bool line_poem_is_palindrome(Poem *poem) {
     bool is_palindrome = true;
     for (int i = 0; i < poem->sentences.size() / 2; i++) {
-        if (poem->sentences[i]->sentence != poem->sentences[poem->sentences.size() - i - 1]->sentence) {
+        if (poem->sentences[i]->text != poem->sentences[poem->sentences.size() - i - 1]->text) {
             is_palindrome = false;
+            break;
         }
     }
     return is_palindrome;
@@ -41,7 +42,7 @@ bool line_poem_is_palindrome(Poem *poem) {
 bool word_poem_is_palindrome(Poem *poem) {
     std::vector<std::string> words;
     for (int i = 0; i < poem->sentences.size(); i++) {
-        std::string sentence = poem->sentences[i]->sentence;
+        std::string sentence = poem->sentences[i]->text;
         std::string word = "";
         for (int j = 0; j < sentence.length(); j++) {
             if (sentence[j] == ' ') {

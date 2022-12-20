@@ -10,10 +10,11 @@ Sentence *sentence_new(std::string sentence) {
     while (iss >> word) {
         new_sentence->words.push_back(word);
     }
-    new_sentence->sentence = sentence;
+    new_sentence->text = sentence;
     return new_sentence;
 }
 
-void sentence_free(Sentence *sentence) {
+Sentence *sentence_free(Sentence *sentence) {
     free(sentence);
+    return nullptr;
 }

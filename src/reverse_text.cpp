@@ -8,13 +8,13 @@ ReverseText *reverse_text_new(std::string text) {
     return r;
 }
 
-void reverse_text_free(ReverseText *reverse_text) {
+ReverseText *reverse_text_free(ReverseText *reverse_text) {
     free(reverse_text);
+    return nullptr;
 }
 
 std::string reverse_text_get(ReverseText *reverse_text) {
     std::string text_copy = reverse_text->text;
-    std::transform(text_copy.begin(), text_copy.end(), text_copy.begin(), ::tolower);
     std::reverse(text_copy.begin(), text_copy.end());
     return text_copy.c_str();
 }

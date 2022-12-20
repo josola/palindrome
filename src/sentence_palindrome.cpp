@@ -9,9 +9,10 @@ SentencePalindrome *sentence_palindrome_new(std::string sentence) {
     return new_sentence_palindrome;
 }
 
-void sentence_palindrome_free(SentencePalindrome *sentence_palindrome) {
-    sentence_free(sentence_palindrome->sentence);
+SentencePalindrome *sentence_palindrome_free(SentencePalindrome *sentence_palindrome) {
+    sentence_palindrome->sentence = sentence_free(sentence_palindrome->sentence);
     free(sentence_palindrome);
+    return nullptr;
 }
 
 bool sentence_is_palindrome(SentencePalindrome *sentence_palindrome) {

@@ -8,8 +8,9 @@ ReverseNumber *reverse_number_new(int number) {
     return r;
 }
 
-void reverse_number_free(ReverseNumber *reverse_number) {
+ReverseNumber *reverse_number_free(ReverseNumber *reverse_number) {
     free(reverse_number);
+    return nullptr;
 }
 
 int reverse_number_get(ReverseNumber *reverse_number) {
