@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/github/license/josola/palindrome?style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/josola/palindrome?style=for-the-badge)
 
-Checks if a word is a palindrome. A word, phrase, verse, or sentence that reads
+Checks if a word, name, number, sentence, or poem is a palindrome. A palindrome is a word, phrase, verse, number, or sentence that reads
 the same backward or forward. For example: A man, a plan, a canal, Panama!
 
 ## Installation
