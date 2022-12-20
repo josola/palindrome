@@ -37,5 +37,15 @@ $ ./build/palindrome poem path/to/palindrome_poem.txt
 $ ./build/palindrome number 12321
 ```
 
+## Testing
+Test poems have not been provided, but you can create your own and place them in
+the `test/resources/` directory. The tests will fail at any assertion that is
+not met. To run the tests, run the following command:
+```
+$ cd test
+$ make
+$ ./build/test
+```
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
